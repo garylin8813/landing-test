@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>APP 下載分流</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        window.onload = function () {
+            var ua = navigator.userAgent || navigator.vendor || window.opera;
+
+            // 判斷 Android
+            if (/android/i.test(ua)) {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.abyss.igp";
+            }
+            // 判斷 iOS
+            else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+                window.location.href = "https://apps.apple.com/tw/app/monster-hunter-now/id6445906110";
+            }
+            // 其它裝置
+            else {
+                // 例如導向官方網站或顯示手動選擇下載平台
+                document.getElementById('select').style.display = "block";
+            }
+        }
+    </script>
+    <style>
+      body { font-family: "Noto Sans TC", "微軟正黑體", sans-serif; text-align: center; margin-top: 80px; }
+      #select { display: none; }
+      a { display: block; margin: 16px auto; font-size: 1.3em; }
+    </style>
+</head>
+<body>
+    <h2>正在為您導向下載頁面…</h2>
+    <div id="select">
+        <p>如未自動跳轉，請選擇您的平台：</p>
+        <a href="https://apps.apple.com/tw/app/monster-hunter-now/id6445906110">iOS 版下載</a>
+        <a href="https://play.google.com/store/apps/details?id=com.abyss.igp">Android 版下載</a>
+    </div>
+</body>
+</html>
